@@ -33,4 +33,18 @@ $(document).ready(function(){
     // move 4 and 5 to connect with part 6
     TweenMax.set('.part4', {y: -557}); /* 289 - 846 */
     TweenMax.set('.part5', {y: -726}); /* 120 - 846 */
+
+    // Create scene for part 6 - move part 6 back to start
+    var p6ToStart = new TweenMax.to('.part6', 1, {y:0, ease:Linear.easeNone});
+
+    var p6ToStartScene = new ScrollMagic.Scene({
+        triggerElement: '.part1',
+        triggerHook: 1,
+        duration: 846,
+        offset: 1250
+    })
+        .setTween(p6ToStart)
+        .addIndicators()
+        .addTo(controller)
+
 });
